@@ -86,4 +86,15 @@ attr_reader :length
     @buckets = Array.new(@capacity) { Array.new }
     @length = 0
   end
+
+  def keys
+    keys = []
+    for list in @buckets
+      for pair in list
+        keys << pair[0]
+      end
+    end
+    keys
+  end
+
 end
