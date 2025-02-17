@@ -37,4 +37,5 @@ p test.length
 p test.remove('ice cream')
 p test
 p test.length
-
+test.clear
+p test

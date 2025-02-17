@@ -46,9 +46,7 @@ attr_reader :length
       end
     end
 
-    @capacity *= 2
-    @buckets = Array.new(@capacity) { Array.new }
-    @length = 0
+    clear(@capacity * 2)
     for pair in pairs
       set(pair[0], pair[1])
     end
@@ -81,5 +79,11 @@ attr_reader :length
       end
     end
     nil
+  end
+
+  def clear(capacity=16)
+    @capacity = capacity
+    @buckets = Array.new(@capacity) { Array.new }
+    @length = 0
   end
 end
