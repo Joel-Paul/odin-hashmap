@@ -107,4 +107,14 @@ attr_reader :length
     values
   end
 
+  def entries
+    pairs = []
+    for list in @buckets
+      for pair in list
+        pairs << pair
+      end
+    end
+    pairs
+  end
+
 end

@@ -17,6 +17,7 @@ test.set('lion', 'golden')
 # p test.length
 p test.keys
 p test.values
+p test.entries
 
 # p test
 test.set('apple', 'blue')
@@ -44,3 +45,4 @@ p test.remove('ice cream')
 
 p test.keys
 p test.values
+p test.entries
