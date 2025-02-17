@@ -36,7 +36,7 @@ class HashMap
 
   def grow
     # puts "loadfactor: #{@loadfactor}, capacity: #{@capacity}, length: #{@size}"
-    puts "Increasing to #{@capacity * 2} capacity"
+    # puts "Increasing to #{@capacity * 2} capacity"
     pairs = []
     for list in @buckets
       for pair in list
@@ -50,5 +50,14 @@ class HashMap
     for pair in pairs
       set(pair[0], pair[1])
     end
+  end
+
+  def get(key)
+    for list in @buckets
+      for pair in list
+        return pair[1] if pair[0] == key
+      end
+    end
+    nil
   end
 end

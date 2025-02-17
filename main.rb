@@ -19,7 +19,9 @@ test.set('lion', 'golden')
 test.set('apple', 'blue')
 # p test
 test.set('lion', 'green')
-p test
+# p test
 
 test.set('biscuit', 'hard')
-p test
+# p test
+
+p test.get('carrot')
