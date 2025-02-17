@@ -22,7 +22,12 @@ test.set('lion', 'green')
 # p test
 
 test.set('biscuit', 'hard')
-# p test
+p test
 
 # p test.get('carrot')
-p test.has?('asd')
+# p test.has?('asd')
+
+p test.remove('ice cream')
+p test
+p test.remove('ice cream')
+p test

@@ -64,4 +64,20 @@ class HashMap
   def has?(key)
     get(key).nil? ? false : true
   end
+
+  def remove(key)
+    to_remove = nil
+    for list in @buckets
+      for pair in list
+        to_remove = pair if pair[0] == key
+        break
+      end
+      unless to_remove.nil?
+        list.delete(to_remove)
+        @size -= 1
+        return to_remove[1]
+      end
+    end
+    nil
+  end
 end
