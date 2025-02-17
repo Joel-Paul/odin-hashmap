@@ -60,4 +60,8 @@ class HashMap
     end
     nil
   end
+
+  def has?(key)
+    get(key).nil? ? false : true
+  end
 end

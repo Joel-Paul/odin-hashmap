@@ -24,4 +24,5 @@ test.set('lion', 'green')
 test.set('biscuit', 'hard')
 # p test
 
-p test.get('carrot')
+# p test.get('carrot')
+p test.has?('asd')
