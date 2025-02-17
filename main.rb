@@ -16,6 +16,7 @@ test.set('kite', 'pink')
 test.set('lion', 'golden')
 # p test.length
 p test.keys
+p test.values
 
 # p test
 test.set('apple', 'blue')
@@ -42,3 +43,4 @@ p test.remove('ice cream')
 # p test
 
 p test.keys
+p test.values
