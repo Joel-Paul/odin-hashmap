@@ -14,3 +14,9 @@ test.set('ice cream', 'white')
 test.set('jacket', 'blue')
 test.set('kite', 'pink')
 test.set('lion', 'golden')
+
+p test
+test.set('apple', 'blue')
+p test
+test.set('lion', 'green')
+p test
