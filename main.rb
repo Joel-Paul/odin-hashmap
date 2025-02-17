@@ -15,8 +15,11 @@ test.set('jacket', 'blue')
 test.set('kite', 'pink')
 test.set('lion', 'golden')
 
-p test
+# p test
 test.set('apple', 'blue')
-p test
+# p test
 test.set('lion', 'green')
+p test
+
+test.set('biscuit', 'hard')
 p test

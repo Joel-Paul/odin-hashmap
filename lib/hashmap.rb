@@ -4,6 +4,7 @@ class HashMap
     @loadfactor = loadfactor
     @capacity = capacity
     @buckets = Array.new(capacity) { Array.new }
+    @size = 0
   end
 
   def hash(key)
@@ -16,7 +17,7 @@ class HashMap
   def set(key, value)
     index = hash(key) % @capacity
     raise IndexError if index.negative? || index >= @buckets.length
-    puts "[#{key}, #{value}] -> #{index}"
+    # puts "[#{key}, #{value}] -> #{index}"
 
     list = @buckets[index]
 
@@ -28,6 +29,26 @@ class HashMap
       end
     end
     # Otherwise add a new pair
+    @size += 1
     list << [key, value]
+    grow if @loadfactor * @capacity < @size
+  end
+
+  def grow
+    # puts "loadfactor: #{@loadfactor}, capacity: #{@capacity}, length: #{@size}"
+    puts "Increasing to #{@capacity * 2} capacity"
+    pairs = []
+    for list in @buckets
+      for pair in list
+        pairs << pair
+      end
+    end
+
+    @capacity *= 2
+    @buckets = Array.new(@capacity) { Array.new }
+    @size = 0
+    for pair in pairs
+      set(pair[0], pair[1])
+    end
   end
 end
