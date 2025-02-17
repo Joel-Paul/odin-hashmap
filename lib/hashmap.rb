@@ -1,10 +1,12 @@
 
 class HashMap
+attr_reader :length
+
   def initialize(loadfactor=0.8, capacity=16)
     @loadfactor = loadfactor
     @capacity = capacity
     @buckets = Array.new(capacity) { Array.new }
-    @size = 0
+    @length = 0
   end
 
   def hash(key)
@@ -29,13 +31,13 @@ class HashMap
       end
     end
     # Otherwise add a new pair
-    @size += 1
+    @length += 1
     list << [key, value]
-    grow if @loadfactor * @capacity < @size
+    grow if @loadfactor * @capacity < @length
   end
 
   def grow
-    # puts "loadfactor: #{@loadfactor}, capacity: #{@capacity}, length: #{@size}"
+    # puts "loadfactor: #{@loadfactor}, capacity: #{@capacity}, length: #{@length}"
     # puts "Increasing to #{@capacity * 2} capacity"
     pairs = []
     for list in @buckets
@@ -46,7 +48,7 @@ class HashMap
 
     @capacity *= 2
     @buckets = Array.new(@capacity) { Array.new }
-    @size = 0
+    @length = 0
     for pair in pairs
       set(pair[0], pair[1])
     end
@@ -74,7 +76,7 @@ class HashMap
       end
       unless to_remove.nil?
         list.delete(to_remove)
-        @size -= 1
+        @length -= 1
         return to_remove[1]
       end
     end
